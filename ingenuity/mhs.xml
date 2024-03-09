@@ -1,0 +1,21 @@
+<mujoco model="Ingenuity">
+    <option timestep="0.005" solver="CG" iterations="30" tolerance="1e-6"/>
+
+    <visual>
+        <map force="0.1" zfar="30"/>
+        <rgba haze="0.15 0.25 0.35 1"/>
+        <quality shadowsize="2048"/>
+        <global offwidth="800" offheight="800"/>
+    </visual>
+
+    <worldbody>
+        <!--<light directional="true" diffuse=".2 .2 .2" specular="0 0 0" pos="0 0 5" dir="0 0 -1" castshadow="false"/>-->
+        <!--<light directional="false" diffuse=".8 .8 .8" specular="0.3 0.3 0.3" pos="0 0 4" dir="0 0 -1"/>-->
+
+        <!-- robot -->
+        <body name="ingenuity" pos="0 0 1">
+            <freejoint/>
+            
+        </body>
+    </worldbody>
+</mujoco>
