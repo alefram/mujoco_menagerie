@@ -1,5 +1,7 @@
 <mujoco model="Ingenuity">
-    <option timestep="0.005" solver="CG" iterations="30" tolerance="1e-6"/>
+
+    <compiler inertiafromgeom='true' angle='radian' meshdir="assets"/>
+    <option timestep="0.01" solver="CG" iterations="30" tolerance="1e-6"/>
 
     <visual>
         <map force="0.1" zfar="30"/>
@@ -7,7 +9,15 @@
         <quality shadowsize="2048"/>
         <global offwidth="800" offheight="800"/>
     </visual>
-
+    <asset>
+        <mesh name="mainBody" file="mhs_mainbody_v16.stl"/>
+        <mesh name="topBlades" file="mhs_topblades_v16.stl"/>
+        <mesh name="bottomBlades" file="mhs_bottomblades_v16.stl"/>
+        <mesh name="leg01Blades" file="mhs_leg01_v16.stl"/>
+        <mesh name="leg02Blades" file="mhs_leg02_v16.stl"/>
+        <mesh name="leg03Blades" file="mhs_leg03_v16.stl"/>
+        <mesh name="leg04Blades" file="mhs_leg04_v16.stl"/>
+    </asset>
     <worldbody>
         <!--<light directional="true" diffuse=".2 .2 .2" specular="0 0 0" pos="0 0 5" dir="0 0 -1" castshadow="false"/>-->
         <!--<light directional="false" diffuse=".8 .8 .8" specular="0.3 0.3 0.3" pos="0 0 4" dir="0 0 -1"/>-->
@@ -15,7 +25,27 @@
         <!-- robot -->
         <body name="ingenuity" pos="0 0 1">
             <freejoint/>
-            
+            <body name="main" pos="0 0 0">
+                <geom type="mesh" mesh="mainBody"/>
+            </body>    
+            <body name="topBlades">
+                <geom type="mesh" mesh="topBlades"/>
+            </body>
+            <body name="bottomBlades">
+                <geom type="mesh" mesh="bottomBlades"/>
+            </body>
+            <body name="leg01">
+                <geom type="mesh" mesh="leg01Blades"/>
+            </body>
+            <body name="leg02">
+                <geom type="mesh" mesh="leg02Blades"/>
+            </body>
+            <body name="leg03">
+                <geom type="mesh" mesh="leg03Blades"/>
+            </body>
+            <body name="leg04">
+                <geom type="mesh" mesh="leg04Blades"/>
+            </body>
         </body>
     </worldbody>
 </mujoco>
